@@ -759,10 +759,6 @@ user_pref("_arkenfox-overrides.js.parrot", "2600 syntax error: the parrot's run 
 user_pref("permissions.default.shortcuts", 2);
 
 /** DOWNLOADS ***/
-/* 2651: disable always asking where to download
- * [SETUP-CHROME] On Android enabling this blocks longtapping and saving images
- * [SETTING] General>Downloads>Always ask you where to save files ***/
-user_pref("browser.download.useDownloadDir", true);
 /* 2654: disable always asking how to handle new mimetypes [FF101+]
  * [SETTING] General>Files and Applications>What should Firefox do with other files ***/
 user_pref("browser.download.always_ask_before_handling_new_types", false);
