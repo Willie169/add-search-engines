@@ -5,8 +5,8 @@
 
 # Check if running as root
 if [ "${EUID:-"$(id -u)"}" -eq 0 ]; then
-	printf "You shouldn't run this with elevated privileges (such as with doas/sudo).\n"
-	exit 1
+  printf "You shouldn't run this with elevated privileges (such as with doas/sudo).\n"
+  exit 1
 fi
 
 # shellcheck disable=2155
@@ -16,7 +16,6 @@ SCRIPT_FILE=$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || greadlink -f "${BAS
 [ -z "$SCRIPT_FILE" ] && SCRIPT_FILE=${BASH_SOURCE[0]}
 # shellcheck disable=2155
 readonly SCRIPT_DIR=$(dirname "${SCRIPT_FILE}")
-
 
 #########################
 #    Base variables     #
@@ -51,7 +50,6 @@ else
   exit 1
 fi
 
-
 show_banner() {
   echo -e "${BBLUE}
                 ############################################################################
@@ -71,7 +69,7 @@ show_banner() {
 
 usage() {
   echo
-  echo -e "${BLUE}Usage: $0 [-bcdhlnsuv] [-p PROFILE] [-o OVERRIDE]${NC}" 1>&2  # Echo usage string to standard error
+  echo -e "${BLUE}Usage: $0 [-bcdhlnsuv] [-p PROFILE] [-o OVERRIDE]${NC}" 1>&2 # Echo usage string to standard error
   echo -e "
 Optional Arguments:
     -h           Show this help message and exit.
@@ -141,10 +139,10 @@ readIniFile() { # expects one argument: absolute path of profiles.ini
   fi
 
   # extracting 0 or 1 from the "IsRelative=" line
-  declare -r pathisrel=$(sed -n 's/^IsRelative=\([01]\)$/\1/p' <<< "${tempIni}")
+  declare -r pathisrel=$(sed -n 's/^IsRelative=\([01]\)$/\1/p' <<<"${tempIni}")
 
   # extracting only the path itself, excluding "Path="
-  PROFILE_PATH=$(sed -n 's/^Path=\(.*\)$/\1/p' <<< "${tempIni}")
+  PROFILE_PATH=$(sed -n 's/^Path=\(.*\)$/\1/p' <<<"${tempIni}")
   # update global variable if path is relative
   [[ ${pathisrel} == "1" ]] && PROFILE_PATH="$(dirname "${inifile}")/${PROFILE_PATH}"
 }
@@ -164,7 +162,7 @@ getProfilePath() {
       echo -e "${RED}Error: Sorry, -l is not supported for your OS${NC}"
       exit 1
     fi
-  #else
+    #else
     # PROFILE_PATH already set by user with -p
   fi
 }
@@ -190,7 +188,7 @@ update_updater() {
     echo -e "${RED}Update and execute overrides-updater.sh Y/N?${NC}"
     read -p "" -n 1 -r
     echo -e "\n\n"
-    [[ $REPLY =~ ^[Yy]$ ]] || return 0   # Update available, but user chooses not to update
+    [[ $REPLY =~ ^[Yy]$ ]] || return 0 # Update available, but user chooses not to update
   fi
 
   mv "${tmpfile}" "$SCRIPT_FILE"
@@ -206,16 +204,15 @@ update_updater() {
 add_override() {
   input=$1
   if [ -f "$input" ]; then
-    echo "" >> user-overrides.js
-    cat "$input" >> user-overrides.js
+    echo "" >>user-overrides.js
+    cat "$input" >>user-overrides.js
     echo -e "Status: ${GREEN}Override file appended:${NC} ${input}"
   elif [ -d "$input" ]; then
     SAVEIFS=$IFS
     IFS=$'\n\b' # Set IFS
     # shellcheck disable=2125
     FILES="${input}"/*.js
-    for f in $FILES
-    do
+    for f in $FILES; do
       add_override "$f"
     done
     IFS=$SAVEIFS # restore $IFS
@@ -225,7 +222,7 @@ add_override() {
 }
 
 remove_comments() { # expects 2 arguments: from-file and to-file
-  sed -e '/^\/\*.*\*\/[[:space:]]*$/d' -e '/^\/\*/,/\*\//d' -e 's|^[[:space:]]*//.*$||' -e '/^[[:space:]]*$/d' -e 's|);[[:space:]]*//.*|);|' "$1" > "$2"
+  sed -e '/^\/\*.*\*\/[[:space:]]*$/d' -e '/^\/\*/,/\*\//d' -e 's|^[[:space:]]*//.*$||' -e '/^[[:space:]]*$/d' -e 's|);[[:space:]]*//.*|);|' "$1" >"$2"
 }
 
 # Applies latest version of Peskyfox.js, arkenfox-overrides.js, Peskyfox-overrides.js, extra-overrides.js, and any custom overrides
@@ -287,7 +284,7 @@ update_userjs() {
   mv "$arkenfoxoverrides" arkenfox-overrides.js
   mv "$peskyfoxoverrides" Peskyfox-overrides.js
   mv "$extraoverrides" extra-overrides.js
-  cat Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js > user-overrides.js
+  cat Peskyfox.js arkenfox-overrides.js Peskyfox-overrides.js extra-overrides.js >user-overrides.js
 
   # apply custom overrides
   if [ "$SKIPCOMBINE" = false ]; then
@@ -295,7 +292,7 @@ update_userjs() {
       for FILE in "${FILES[@]}"; do
         add_override "$FILE"
       done
-    done <<< "$OVERRIDE"
+    done <<<"$OVERRIDE"
   fi
 
   # create diff
@@ -310,7 +307,7 @@ update_userjs() {
     diffname="useroverridesjs_diffs/diff_$(date +"%Y-%m-%d_%H%M").txt"
     diff=$(diff -w -B -U 0 "$past_nocomments" "$current_nocomments")
     if [ -n "$diff" ]; then
-      echo "$diff" > "$diffname"
+      echo "$diff" >"$diffname"
       echo -e "Status: ${GREEN}A diff file was created:${NC} ${PWD}/${diffname}"
     else
       echo -e "Info: ${ORANGE}Your new user-overrides.js file appears to be identical.  No diff file was created.${NC}"
@@ -385,12 +382,12 @@ cd "$PROFILE_PATH" || exit 1
 
 # Check if any files have the owner as root/wheel.
 if [ -n "$(find ./ -user 0)" ]; then
-	printf 'It looks like this script was previously run with elevated privileges,
+  printf 'It looks like this script was previously run with elevated privileges,
 you will need to change ownership of the following files to your user:\n'
-	find . -user 0
-    # shellcheck disable=2164
-	cd "$CURRDIR"
-	exit 1
+  find . -user 0
+  # shellcheck disable=2164
+  cd "$CURRDIR"
+  exit 1
 fi
 
 update_userjs
