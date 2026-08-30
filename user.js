@@ -1907,7 +1907,6 @@ user_pref("findbar.highlightAll", true);
 // [1] https://cloudinary.com/blog/the-case-for-jpeg-xl
 // [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1539075#c51
 //user_pref("image.jxl.enabled", true);
-
 /*** combinedfox overrides for arkenfox user.js arkenfox-overrides.js
    [1] https://github.com/arkenfox/user.js/blob/master/user.js ***/
 /* START: internal custom pref to test for syntax errors ***/
@@ -2054,7 +2053,7 @@ user_pref("_arkenfox-overrides.js.parrot", "4500 syntax error: the parrot's popp
  * [1] https://bugzilla.mozilla.org/1407366
  * [2] https://hg.mozilla.org/mozilla-central/rev/7211cb4f58ff#l5.13 ***/
 user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
-   // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
+// user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 
 /*** [SECTION 5000]: OPTIONAL OPSEC ***/
 user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's taken 'is last bow");
@@ -2168,8 +2167,6 @@ user_pref("_arkenfox-overrides.js.parrot", "9999 syntax error: the parrot's shuf
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_arkenfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
-
-
 /*** combinedfox overrides for Betterfox Peskyfox.js Peskyfox-overrides.js
    [1] https://github.com/yokoffing/Betterfox/blob/main/Peskyfox.js ***/
 /* START: internal custom pref to test for syntax errors ***/
@@ -2177,16 +2174,13 @@ user_pref("_Peskyfox-overrides.js.parrot", "START: Oh yes, the Norwegian Blue...
 
 /****************************************************************************
  * SECTION: MOZILLA UI                                                      *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "MOZILLA UI syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: THEME ADJUSTMENTS                                              *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "THEME ADJUSTMENTS syntax error: the parrot's dead!");
-
-// PREF: disable always using dark theme for private browsing windows [FF106+]
-user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: show search bar [FF122+]
 // Mozilla has removed the search bar option from the settings window.
@@ -2194,7 +2188,7 @@ user_pref("browser.search.widget.inNavBar", true);
 
 /****************************************************************************
  * SECTION: AI                                                              *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "AI syntax error: the parrot's dead!");
 
 // PREF: AI default controls
@@ -2208,22 +2202,22 @@ user_pref("browser.ml.chat.menu", true);
 
 /****************************************************************************
  * SECTION: TRANSLATIONS                                                    *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "TRANSLATIONS syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: FULLSCREEN NOTICE                                               *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "FULLSCREEN NOTICE syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: FONT APPEARANCE                                                 *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "FONT APPEARANCE syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: URL BAR                                                         *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "URL BAR syntax error: the parrot's dead!");
 
 // PREF: browser.urlbar.suggest.*
@@ -2276,12 +2270,12 @@ user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", false);
 
 /****************************************************************************
  * SECTION: AUTOPLAY                                                        *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "AUTOPLAY syntax error: the parrot's dead!");
 
 /****************************************************************************
  * SECTION: NEW TAB PAGE                                                    *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "NEW TAB PAGE syntax error: the parrot's dead!");
 
 // PREF: Bookmarks Toolbar visibility
@@ -2290,12 +2284,12 @@ user_pref("browser.toolbars.bookmarks.visibility", "always");
 
 /******************************************************************************
  * SECTION: POCKET                                                            *
-******************************************************************************/
+ ******************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "POCKET syntax error: the parrot's dead!");
 
 /******************************************************************************
  * SECTION: DOWNLOADS                                 *
-******************************************************************************/
+ ******************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "DOWNLOADS syntax error: the parrot's dead!");
 
 // PREF: disable autohide the downloads button
@@ -2304,7 +2298,7 @@ user_pref("browser.download.autohideButton", false);
 
 /****************************************************************************
  * SECTION: PDF                                                             *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "PDF syntax error: the parrot's dead!");
 
 // PREF: PDF sidebar on load
@@ -2320,7 +2314,7 @@ user_pref("pdfjs.defaultZoomValue", "page-width");
 
 /****************************************************************************
  * SECTION: DOM (DOCUMENT OBJECT MODEL)                                     *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "DOM syntax error: the parrot's dead!");
 
 // PREF: prevent scripts from moving and resizing open windows
@@ -2333,7 +2327,7 @@ user_pref("dom.disable_beforeunload", true);
 
 /****************************************************************************
  * SECTION: TAB BEHAVIOR                                                    *
-****************************************************************************/
+ ****************************************************************************/
 user_pref("_Peskyfox-overrides.js.parrot", "TAB BEHAVIOR syntax error: the parrot's dead!");
 
 // PREF: determine the behavior of pages opened by JavaScript (like popups)
@@ -2429,8 +2423,6 @@ user_pref("image.jxl.enabled", true);
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_Peskyfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
-
-
 /*** combinedfox extra overrides extra-overrides.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
@@ -2533,4 +2525,3 @@ user_pref("media.videocontrols.picture-in-picture.enable-when-switching-tabs.ena
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
-
