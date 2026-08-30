@@ -1,4 +1,3 @@
-
 /*** combinedfox overrides for arkenfox user.js arkenfox-overrides.js
    [1] https://github.com/arkenfox/user.js/blob/master/user.js ***/
 /* START: internal custom pref to test for syntax errors ***/
@@ -145,7 +144,7 @@ user_pref("_arkenfox-overrides.js.parrot", "4500 syntax error: the parrot's popp
  * [1] https://bugzilla.mozilla.org/1407366
  * [2] https://hg.mozilla.org/mozilla-central/rev/7211cb4f58ff#l5.13 ***/
 user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
-   // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
+// user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 
 /*** [SECTION 5000]: OPTIONAL OPSEC ***/
 user_pref("_arkenfox-overrides.js.parrot", "5000 syntax error: the parrot's taken 'is last bow");
@@ -259,4 +258,3 @@ user_pref("_arkenfox-overrides.js.parrot", "9999 syntax error: the parrot's shuf
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_arkenfox-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
-

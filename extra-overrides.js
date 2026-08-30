@@ -1,4 +1,3 @@
-
 /*** combinedfox extra overrides extra-overrides.js ***/
 /* START: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
@@ -101,4 +100,3 @@ user_pref("media.videocontrols.picture-in-picture.enable-when-switching-tabs.ena
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_extra-overrides.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
-
