@@ -24,10 +24,6 @@ user_pref("_arkenfox-overrides.js.parrot", "0200 syntax error: the parrot's defi
 
 /*** [SECTION 0300]: QUIETER FOX ***/
 user_pref("_arkenfox-overrides.js.parrot", "0300 syntax error: the parrot's not pinin' for the fjords!");
-/* 0360: enable Captive Portal detection
- * [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy ***/
-user_pref("captivedetect.canonicalURL", "http://detectportal.firefox.com/canonical.html");
-user_pref("network.captive-portal-service.enabled", true); // [FF52+]
 
 /*** [SECTION 0400]: SAFE BROWSING (SB) ***/
 user_pref("_arkenfox-overrides.js.parrot", "0400 syntax error: the parrot's passed on!");
